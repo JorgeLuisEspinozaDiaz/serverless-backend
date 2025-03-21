@@ -69,6 +69,6 @@ export class CampaignController {
   @ApiResponse({ status: 404, description: 'Campaña no encontrada.' })
   async sendCampaign(@Param('id') id: number) {
     await this.commandBus.execute(new SendCampaignCommand(id));
-    return { message: 'Campaign is being processed' };
+    return { message: 'La campaña está siendo procesada' };
   }
 }

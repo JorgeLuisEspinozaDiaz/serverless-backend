@@ -6,6 +6,7 @@ import { Message } from '../../../../domain/entities/message.entity';
 import { Repository } from 'typeorm';
 import { TwilioService } from '../../../../infrastructure/configuration/twilio.service';
 import { CampaignSentEvent } from '../../../../application/events/campaigns/sent/campaign-sent.event';
+import { DateTime } from 'luxon';
 
 @CommandHandler(SendCampaignCommand)
 export class SendCampaignHandler
@@ -39,9 +40,13 @@ export class SendCampaignHandler
 
     for (const phone of phoneNumbers) {
       const now = new Date();
-      const peruTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000); 
-      const processDate = peruTime.toISOString().split('T')[0];  
-      const processHour = peruTime.toTimeString().split(' ')[0]; 
+      // const peruTime = new Date(now.getTime() - (now.getTimezoneOffset() * 60000) - (5 * 60 * 60 * 1000)); 
+      // const processDate = peruTime.toISOString().split('T')[0];  
+      // const processHour = peruTime.toTimeString().split(' ')[0]; 
+      const peruTime = DateTime.now().setZone("America/Lima");
+
+const processDate = peruTime.toFormat("yyyy-MM-dd"); // Formato de fecha: 2025-03-21
+const processHour = peruTime.toFormat("HH:mm:ss");  // Formato de hora: 13:45:30
       const message = this.messageRepo.create({
         campaign_id: campaignId,
         phone,

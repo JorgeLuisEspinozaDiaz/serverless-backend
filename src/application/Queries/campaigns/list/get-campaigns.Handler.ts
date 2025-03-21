@@ -30,7 +30,7 @@ export class GetCampaignsHandler implements IQueryHandler<GetCampaignsQuery> {
       'campaign.phone_list',
       'campaign.message_text',
       'user.username AS user_name',  
-    ]);
+    ]).orderBy('campaign.process_date', 'DESC');;
    
     if (startDate && endDate) {
       qb.where('campaign.process_date BETWEEN :startDate AND :endDate', {
