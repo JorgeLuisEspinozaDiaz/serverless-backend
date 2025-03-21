@@ -1,0 +1,37 @@
+service: marketing-project
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1  
+  environment:
+    DB_HOST: database-1.car22e4gqefr.us-east-1.rds.amazonaws.com
+    DB_PORT: 3306
+    DB_USER: admin
+    DB_PASSWORD: admin123
+    DB_NAME: marketing-prueba
+
+
+custom:
+  serverless-offline:
+  noPrependStageInUrl: true  # 🔥 Evita que agregue /local o /dev
+
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+     - httpApi:
+          method: any
+          path: /{proxy+}
+         
+
+plugins:
+  - serverless-jetpack
+  - serverless-offline
+
+  
+
+
+   
+   
