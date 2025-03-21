@@ -2,6 +2,19 @@
 
 Este documento describe los pasos necesarios para instalar y ejecutar el proyecto backend basado en NestJS y Serverless Framework en un entorno local.
 
+## Arquitectura del Proyecto
+
+Este proyecto sigue el **patrón de CQRS (Command Query Responsibility Segregation)**, lo que permite separar las responsabilidades de **lectura (Queries)** y **escritura (Commands)** dentro de la arquitectura. 
+
+### **Estructura del Proyecto**
+
+- **application/** → Contiene la lógica de negocio dividida en:
+  - **commands/** → Manejo de acciones que modifican el estado del sistema.
+  - **queries/** → Consultas de datos sin modificar el estado.
+  - **events/** → Manejo de eventos asincrónicos.
+- **domain/** → Define las entidades y reglas de negocio centrales.
+- **infrastructure/** → Contiene implementaciones concretas como acceso a la base de datos o servicios externos.
+
 ## Requisitos previos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente en tu máquina:
@@ -81,3 +94,4 @@ serverless deploy
 A continuación, se muestra una captura de pantalla de una prueba exitosa de envío de mensaje mediante Twilio:
 
 ![Prueba de Mensaje Twilio](src/docs/images/twilo.jpeg)
+
