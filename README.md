@@ -80,4 +80,4 @@ serverless deploy
 
 A continuación, se muestra una captura de pantalla de una prueba exitosa de envío de mensaje mediante Twilio:
 
-![Prueba de Mensaje Twilio](docs/images/twilo.jpeg)
+![Prueba de Mensaje Twilio](src/docs/images/twilo.jpeg)
