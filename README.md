@@ -44,6 +44,8 @@ Sigue los siguientes pasos para instalar y ejecutar el proyecto:
    ```
    🔴 **Nota:** No compartas credenciales reales en un repositorio público. Usa archivos de entorno o servicios de gestión de secretos.
 
+   📌 **Importante:** Este proyecto utiliza el servicio de Twilio para el envío de mensajes SMS. Actualmente, Twilio solo enviará mensajes de manera exitosa al número registrado `+51910552498`. Los mensajes a otros números no serán entregados y su estado aparecerá como error.
+
 5. **Construir el proyecto:**
    ```sh
    npm run build
