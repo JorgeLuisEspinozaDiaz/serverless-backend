@@ -53,9 +53,11 @@ Sigue los siguientes pasos para instalar y ejecutar el proyecto:
    ```sh
    serverless offline
    ```
+   Luego, abre en tu navegador `http://localhost:3000/api/swagger` para acceder a la documentación de Swagger y probar las APIs.
 
 ## Despliegue en Producción
 Para desplegar el proyecto en AWS u otro proveedor, ejecuta:
    ```sh
    serverless deploy
    ```
+
